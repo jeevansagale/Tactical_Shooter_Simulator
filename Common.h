@@ -35,3 +35,28 @@ enum CameraState {
 };
 extern CameraState CamState;
 
+
+// ------ COLOR -----
+class Color_Palette {
+public:
+
+	Color_Palette();
+	Color LightDark;
+	Color LightDark2;
+	Color MidDark;
+	Color MidDark2 ;
+	Color Dark;
+
+	Color Red;
+	Color LightRed;
+	Color MidRed;
+	Color FaintRed;
+	Color FaintRed2;
+
+	Color FaintGreen;
+	Color LightGreen;
+	Color MidGreen;
+	Color Green;
+	Color DarkGreen;
+};
+extern Color_Palette color;

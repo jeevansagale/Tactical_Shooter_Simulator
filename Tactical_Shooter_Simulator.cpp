@@ -13,6 +13,7 @@
 #include "UI.h"
 #include "Player.h"
 #include "MainGame.h"
+#include "Store.h"
 
 // MainCamera to decide which camera is act-ive
 Camera3D *ActiveCam = &CamUI.cam;
@@ -31,6 +32,8 @@ void Menu2D();      // 2D
 // MainGame
 void MainGame3D();
 void MainGame2D();
+
+bool Show = false;
 
 
 int main() {
@@ -79,7 +82,7 @@ int main() {
 
 		// ----- Drawing Begins -----
 		BeginDrawing();
-		ClearBackground(RAYWHITE);   // Background Color
+		ClearBackground({160 , 217 , 239});   // Background Color
 
 
 		// BEGIN 3D MODE 
@@ -109,6 +112,7 @@ int main() {
 		}
 
 		else if (CurrentState == START) {
+			store.ShowWindow(Show);
 			MainGame2D();
 		}
 
@@ -177,6 +181,8 @@ void MainGame3D() {
 	MBR.Draw();
 	for (auto& box : MW.HitBox) { DrawBoundingBox(box, GREEN); }
 	for (auto& box : MB.HitBox) { DrawBoundingBox(box, BLUE); }
+
+	if (IsKeyPressed(KEY_ESCAPE)) CurrentState = EXIT;
 }
 
 

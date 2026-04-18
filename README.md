@@ -47,7 +47,7 @@ git clone https://github.com/your-username/TacticalShooter.git
 cd TacticalShooter
 ```
 
-3. Compile and run (example using g++):
+3. Extract and click on .exe file:
 
 ```
 click Tactical_Shooter.exe

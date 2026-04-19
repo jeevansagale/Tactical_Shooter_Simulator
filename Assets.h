@@ -54,6 +54,20 @@ extern Texture2D Enemy_Tex;
 extern Sound Click;
 
 
+// -------------------- SOUND --------------------
+extern Texture2D PlayIcon;    
+extern Texture2D ArmourIcon;   
+extern Texture2D HealthIcon;   
+extern Texture2D DefenceIcon;  
+extern Texture2D PistolIcon;   
+extern Texture2D ExitIcon;    
+extern Texture2D DeathIcon;   
+extern Texture2D SpeedIcon;   
+extern Texture2D SettingIcon; 
+extern Texture2D SheildIcon;
+extern Texture2D DamageIcon;
+
+
 // -------------------- LOAD --------------------
 class Assets {
 public:
@@ -106,4 +120,12 @@ public:
 	void Load() override;
 	~Images();
 };
-extern Images images;         
+extern Images images;   
+
+
+class Icon : public Assets {
+public:
+	void Load() override;
+	~Icon();
+};
+extern Icon icon;

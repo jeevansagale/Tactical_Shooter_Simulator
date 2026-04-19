@@ -151,6 +151,8 @@ void LoadAssets() {
 	images.Load();
 	soundmusic.Load();
 	font.Load();
+	icon.Load();
+	store.LoadWindowAssets();
 }
 
 
@@ -166,6 +168,9 @@ void Menu2D() {
 	T.MakeTitle("TACTICAL SHOOTER");
 	MakeButton({ 100 , 400 , 300 , 70 }, "START", GREEN, DARKGREEN, LIME, START);
 	MakeButton({ 100 , 500 , 300 , 70 }, "EXIT", RED, ORANGE, MAROON, EXIT);
+
+	DrawTextureEx(PlayIcon, { 110, 410 }, 0 , 0.09f, WHITE);
+	DrawTextureEx(ExitIcon, { 110, 510 }, 0 , 0.09f, WHITE);
 }
 
 
@@ -179,10 +184,8 @@ void MainGame3D() {
 	MST.Draw();
 	MC.Draw();
 	MBR.Draw();
-	for (auto& box : MW.HitBox) { DrawBoundingBox(box, GREEN); }
-	for (auto& box : MB.HitBox) { DrawBoundingBox(box, BLUE); }
 
-	if (IsKeyPressed(KEY_ESCAPE)) CurrentState = EXIT;
+	if (IsKeyPressed(KEY_ESCAPE)) CurrentState = MENU;
 }
 
 

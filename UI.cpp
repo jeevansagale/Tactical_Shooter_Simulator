@@ -69,19 +69,20 @@ void Title::MakeTitle(const char* Title) {
 
 	Vector2 Location = { DirX , DirY };
 
-	if (DirX >= 100.0f) {
-		DirX = 100.0f; 
-		DirX = Clamp(DirX, -1100.0f, 100.0f);
+	if (DirX >= 200.0f) {
+		DirX = 200.0f; 
+		DirX = Clamp(DirX, -1100.0f, 200.0f);
 		DirY += DT * Dir;
 	}
-	if (DirY >= 70.0f) { Dir = -1; }
-	if (DirY <= 130.0f) { Dir = 1; }
+	if (DirY >= 80.0f) { Dir = -1; }
+	if (DirY <= 140.0f) { Dir = 1; }
 
 	if (DirX >= 20.0f) { Alpha += DT; }
 	if (Alpha >= 1.0f) { Alpha = 1.0f; Alpha = Clamp(Alpha, 0.0f, 1.0f); }
 
 	DrawTextEx(Doom, Title, Location, 128, 2, Fade(BLACK, Alpha));
 	DrawTextEx(DoomOutline, Title, { Location.x + 2 , Location.y + 2 }, 128, 2, Fade(BLACK, Alpha));
+	DrawTextureEx(PistolIcon, { Location.x - 100.0f , Location.y }, 0.0f, 0.2f, WHITE);
 }
 
 

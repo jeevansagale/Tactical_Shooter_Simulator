@@ -7,6 +7,7 @@ Character character;
 Fonts font;
 SoundMusic soundmusic;
 Images images;
+Icon icon;
 
 
 // -------------------- FONTS --------------------
@@ -49,7 +50,22 @@ Model TarGetStand;
 Sound Click;
 
 
+// -------------------- ICONS --------------------
+Texture2D PlayIcon;
+Texture2D ArmourIcon;
+Texture2D HealthIcon;
+Texture2D DefenceIcon;
+Texture2D PistolIcon;
+Texture2D ExitIcon;
+Texture2D DeathIcon;
+Texture2D SpeedIcon;
+Texture2D SettingIcon;
+Texture2D SheildIcon;
+Texture2D DamageIcon;
 
+
+// --------------- LOADING ASSETS ---------------
+// ------------------------------------------------
 void Character::Load() {
 
 }
@@ -98,6 +114,21 @@ void Images::Load() {
 
 void SoundMusic::Load() {
 	Click = LoadSound("Assets/Sound/UI Soundpack/UI Soundpack/MP3/Coffee1.mp3");
+}
+
+
+void Icon::Load() {
+	ArmourIcon  = LoadTexture("Assets/Icons/armor.png");
+	HealthIcon  = LoadTexture("Assets/Icons/cardiogram.png");
+	SpeedIcon   = LoadTexture("Assets/Icons/run.png");
+	SettingIcon = LoadTexture("Assets/Icons/settings.png");
+	SheildIcon  = LoadTexture("Assets/Icons/shield.png");
+	DefenceIcon = LoadTexture("Assets/Icons/defence.png");
+	PistolIcon  = LoadTexture("Assets/Icons/pistol.png");
+	PlayIcon    = LoadTexture("Assets/Icons/play-button-arrowhead.png");
+	ExitIcon    = LoadTexture("Assets/Icons/reject.png");
+	DeathIcon   = LoadTexture("Assets/Icons/risk-skull.png");
+	DamageIcon  = LoadTexture("Assets/Icons/muscles.png");
 }
 
 
@@ -157,4 +188,20 @@ Images::~Images() {
 
 Character::~Character() {
 	std::cout << "\033[1;93m \n Character Unloded \033[0m\n\n";
+}
+
+
+Icon::~Icon() {
+	std::cout << "\033[1;93m \n Icon Unloded \033[0m\n\n";
+	UnloadTexture(PlayIcon);
+	UnloadTexture(ArmourIcon);
+	UnloadTexture(HealthIcon);
+	UnloadTexture(DefenceIcon);
+	UnloadTexture(PistolIcon);
+	UnloadTexture(ExitIcon);
+	UnloadTexture(DeathIcon);
+	UnloadTexture(SpeedIcon);
+	UnloadTexture(SettingIcon);
+	UnloadTexture(SheildIcon);
+	UnloadTexture(DamageIcon);
 }

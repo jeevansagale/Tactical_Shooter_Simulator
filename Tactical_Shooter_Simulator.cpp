@@ -68,16 +68,17 @@ int main() {
 		
 
 		// Which  Camera is active
-		if (CamState == CAM_MENU || CurrentState == MENU) { ActiveCam = &CamUI.cam; UpdateCamera(ActiveCam, CAMERA_ORBITAL); }
-		if (CamState == CAM_MAIN_GAME || CurrentState == START) {ActiveCam = &player_main.cam; UpdateCamera(ActiveCam, CAMERA_FIRST_PERSON); }
+		if (CamState == CAM_MENU || CurrentState == MENU) { ActiveCam = &CamUI.cam; UpdateCamera(ActiveCam, CAMERA_FREE /*CAMERA_ORBITAL*/); }
+		if (CamState == CAM_MAIN_GAME || CurrentState == START) {ActiveCam = &player_main.cam; UpdateCamera(ActiveCam, CAMERA_CUSTOM); }
 
 
 		// Update camera
 		if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
+			ActiveCam = &CamUI.cam;
 			UpdateCamera(ActiveCam, CAMERA_FREE);
 		}
 
-
+		player_main.CameraPos();
 		player_main.PlayerAnimation();
 
 		// ----- Drawing Begins -----
@@ -119,6 +120,8 @@ int main() {
 		// State: Exit
 		else if (CurrentState == EXIT) { break; }
 
+		player_main.cam.position = Vector3Add(player_main.Pos, { 0.0f , 2.0f , 0.0f });
+		player_main.cam.target = Vector3Add(player_main.cam.position, player_main.MouseMovement);
 
 		// END 2D DRAW
 		EndDrawing();

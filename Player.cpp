@@ -13,11 +13,11 @@ Player_Main::Player_Main() {
 	pitch = 0.0f;
 	yaw = 0.0f;
 
-	Pos = { 1 ,3.0f ,1 };
+	Pos = { 1 ,2.5f ,1 };
 	cam = { 0 };
 
 	CurrentFrame = 0;
-	AnimIndex = 6;
+	AnimIndex = 17;
 	AnimCount = 0;
 
 	PlayerHitbox = { {-1, -5, -1} , {1, 5 ,1} };
@@ -47,25 +47,81 @@ void Player_Main::CameraPos() {
 }
 
 
-void Player_Main::PlayerMovement() {
-	Forward = { MouseMovement.x , 0 , MouseMovement.z };
-	Right = Vector3Normalize(Vector3CrossProduct(Forward, { 0 , 1 , 0 }));
+void Player_Main::PlayerMovement()
+{
+	Forward = { MouseMovement.x, 0, MouseMovement.z };
+	Forward = Vector3Normalize(Forward);
 
-	if (IsKeyDown(KEY_W)) { Pos = Vector3Add(Pos, Vector3Scale(Vector3Normalize(Forward), 5 * DT)); AnimIndex = 8; }
-	else if (IsKeyDown(KEY_S)) { Pos = Vector3Subtract(Pos, Vector3Scale(Vector3Normalize(Forward), 5 * DT)); AnimIndex = 8; }
-	else if (IsKeyDown(KEY_A)) { Pos = Vector3Subtract(Pos, Vector3Scale(Right, 5 * DT)); AnimIndex = 8; }
-	else if (IsKeyDown(KEY_D)) { Pos = Vector3Add(Pos, Vector3Scale(Right, 5 * DT)); AnimIndex = 8; }
-	else { AnimIndex = 7; }
+	Right = Vector3Normalize(Vector3CrossProduct(Forward, { 0, 1, 0 }));
+
+	Vector3 nextPos = Pos;
+
+	float moveSpeed = Speed * DT;
+
+	if (IsKeyDown(KEY_W)) {
+		nextPos = Vector3Add(nextPos, Vector3Scale(Forward, moveSpeed));
+		AnimIndex = 14;
+	}
+
+	else if (IsKeyDown(KEY_S)) {
+		nextPos = Vector3Subtract(nextPos, Vector3Scale(Forward, moveSpeed));
+		AnimIndex = 14;
+	}
+
+	else if (IsKeyDown(KEY_A)) {
+		nextPos = Vector3Subtract(nextPos, Vector3Scale(Right, moveSpeed));
+		AnimIndex = 15;
+	}
+
+	else if (IsKeyDown(KEY_D)) {
+		nextPos = Vector3Add(nextPos, Vector3Scale(Right, moveSpeed));
+		AnimIndex = 15;
+	}
+
+	else {
+		AnimIndex = 23;
+	}
+
+	BoundingBox nextHitbox = {
+		Vector3Add(nextPos, { -0.5f, -1.5f, -0.5f }),
+		Vector3Add(nextPos, {  0.5f,  1.5f,  0.5f })
+	};
+
+	bool canMove = true;
+
+	for (int i = 0; i < MW.HitBox.size(); i++) {
+		if (CheckCollisionBoxes(nextHitbox, MW.HitBox[i])) {
+			canMove = false;
+			break;
+		}
+	}
+
+	for (int i = 0; i < MB.HitBox.size(); i++) {
+		if (CheckCollisionBoxes(nextHitbox, MB.HitBox[i])) {
+			canMove = false;
+			break;
+		}
+	}
+
+
+	if (canMove) {
+		Pos = nextPos;
+	}
+
+	PlayerHitbox = {
+		Vector3Add(Pos, { -0.5f, -1.5f, -0.5f }),
+		Vector3Add(Pos, {  0.5f,  1.5f,  0.5f })
+	};
 
 	UpdateModelAnimation(model, Anim[AnimIndex], CurrentFrame);
-	
-	DrawModelEx(model, Vector3Subtract(Pos, { 0 , 1.5f , 0 }), { 0 , 1 , 0 }, yaw, { 1 , 1 , 1 }, WHITE);
+
+	DrawModelEx( model, Vector3Subtract(Pos, { 0, 1.5f, 0 }), { 0, 1, 0 }, yaw, { 1, 1, 1 }, WHITE);
 }
 
 
 void Player_Main::LoadAnimation() {
-	model = LoadModel("Assets/KayKit_Character_Animations_1.1/Mannequin Character/characters/Mannequin_medium_fix.glb");
-	Anim = LoadModelAnimations("Assets/KayKit_Character_Animations_1.1/Mannequin Character/characters/Mannequin_medium_fix.glb", &AnimCount);
+	model = LoadModel("Assets/KayKit_Character_Animations_1.1/Mannequin Character/characters/Mannequin_medium_fix_3.glb");
+	Anim = LoadModelAnimations("Assets/KayKit_Character_Animations_1.1/Mannequin Character/characters/Mannequin_medium_fix_3.glb", &AnimCount);
 	Tex = LoadTexture("Assets/KayKit_Character_Animations_1.1/Mannequin Character/Textures/mannequin_texture.png");
 	// "Assets/KayKit_Character_Animations_1.1/Animations/gltf/Rig_Medium/Rig_Medium_MovementBasic.glb"
 

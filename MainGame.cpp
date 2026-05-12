@@ -685,6 +685,7 @@ void Map_Wall::GetHitBox() {
 	BoundingBox OuterWall_Right = { Vector3Add({-98 , 1.5f , -98}, { -2.0f , -4.0f , -0.3f }) , Vector3Add({102 , 1.5f , -98}, {  2.0f , 4.0f , 0.3f }) };
 	BoundingBox OuterWall_Top = { Vector3Add({-98 , 1.5f , -98 }, { -0.3f , -4.0f , -2.0f }) , Vector3Add({-98 , 1.5f , 102} , { 0.3f , 4.0f , 2.0f }) };
 	BoundingBox OuterWall_Bottom = { Vector3Add({-98 , 1.5f , 102}, { -2.0f , -4.0f , -0.3f }) , Vector3Add({102 , 1.5f , 102}, { 2.0f , 4.0f , 0.3f }) };
+
 	HitBox.push_back(OuterWall_Left);
 	HitBox.push_back(OuterWall_Right);
 	HitBox.push_back(OuterWall_Top);

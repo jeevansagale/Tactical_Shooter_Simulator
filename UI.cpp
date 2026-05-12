@@ -49,8 +49,8 @@ void MakeButton(Rectangle Btn, const char* BtnName, Color N, Color H, Color P, S
 	if (Check && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) { PlaySound(Click); N = P; CurrentState = NewState; }
 
 	// ----- Drawing the button -----
-	DrawRectangleRounded(Btn, 16 , 8,  Fade(N , 0.4f));
-	DrawRectangleRoundedLines(Btn, 32, 16, Fade(BLACK, 0.5f)); 
+	DrawRectangleRounded(Btn, 16 , 8,  Fade(N , 0.6f));
+	DrawRectangleRoundedLines(Btn, 32, 16, Fade(BLACK, 0.9f)); 
 	DrawTextEx(Azonix, BtnName, Location , 32, 2, BLACK);
 }
 
@@ -69,8 +69,8 @@ void Title::MakeTitle(const char* Title) {
 
 	Vector2 Location = { DirX , DirY };
 
-	if (DirX >= 200.0f) {
-		DirX = 200.0f; 
+	if (DirX >= 150.0f) {
+		DirX = 150.0f; 
 		DirX = Clamp(DirX, -1100.0f, 200.0f);
 		DirY += DT * Dir;
 	}
@@ -80,6 +80,10 @@ void Title::MakeTitle(const char* Title) {
 	if (DirX >= 20.0f) { Alpha += DT; }
 	if (Alpha >= 1.0f) { Alpha = 1.0f; Alpha = Clamp(Alpha, 0.0f, 1.0f); }
 
+	//std::string T = std::string(Title);
+	//DrawRectangleRounded({ (DirX - 100.0f) , (DirY - 20.0f) , 670.0f , 120.0f }, 0.3f, 30.0f, Fade(BLACK, 0.2f));
+	//DrawRectangleRoundedLinesEx({ (DirX - 100.0f) , (DirY - 20.0f) , 670.0f , 120.0f }, 0.3f, 30.0f, 5.0f, Fade(WHITE, 0.1f));
+	
 	DrawTextEx(Doom, Title, Location, 128, 2, Fade(BLACK, Alpha));
 	DrawTextEx(DoomOutline, Title, { Location.x + 2 , Location.y + 2 }, 128, 2, Fade(BLACK, Alpha));
 	DrawTextureEx(PistolIcon, { Location.x - 100.0f , Location.y }, 0.0f, 0.2f, WHITE);
@@ -163,4 +167,66 @@ void OtherStuff::Draw() {
 
 	DrawModel(Target, Location[5], 1, WHITE);
 	DrawModel(Target, Location[6], 1, WHITE);
+}
+
+
+// --------------- Making character for the menu ---------------
+UIChar uichar;
+
+UIChar::UIChar() {
+	AnimIndex = 0;
+	AnimCount = 0;
+	CurrentFrame = 0;
+	Position = {4 , 1.5f , 4};
+}
+
+void UIChar::LoadAnimation() {
+	
+	model = LoadModel("Assets/characterbystyloov1.2/characterbystyloo/character_root.glb");
+	Anim = LoadModelAnimations("Assets/characterbystyloov1.2/characterbystyloo/character_root.glb", &AnimCount);
+}
+
+void UIChar::DrawUICharacter() {
+	CurrentFrame++;
+
+	if (CurrentFrame >= Anim[AnimIndex].frameCount) { CurrentFrame = 0; }
+	UpdateModelAnimation(model, Anim[AnimIndex], CurrentFrame);
+	DrawModel(model, Position, 1.5f,  WHITE);
+
+	if (IsKeyPressed(KEY_ZERO)) { AnimIndex = 0; }
+	if (IsKeyPressed(KEY_ONE)) { AnimIndex = 1; }
+	if (IsKeyPressed(KEY_TWO)) { AnimIndex = 2; }
+	if (IsKeyPressed(KEY_THREE)) { AnimIndex = 3; }
+	if (IsKeyPressed(KEY_FOUR)) { AnimIndex = 4; }
+	if (IsKeyPressed(KEY_FIVE)) { AnimIndex = 5; }
+	if (IsKeyPressed(KEY_SIX)) { AnimIndex = 6; }
+	if (IsKeyPressed(KEY_SEVEN)) { AnimIndex = 7; }
+	if (IsKeyPressed(KEY_EIGHT)) { AnimIndex = 8; }
+	if (IsKeyPressed(KEY_NINE)) { AnimIndex = 9; }
+	if (IsKeyPressed(KEY_KP_1)) { AnimIndex = 10; }
+	if (IsKeyPressed(KEY_KP_2)) { AnimIndex = 11; }
+	if (IsKeyPressed(KEY_KP_3)) { AnimIndex = 12; }
+	if (IsKeyPressed(KEY_KP_4)) { AnimIndex = 13; }
+	if (IsKeyPressed(KEY_KP_5)) { AnimIndex = 14; }
+	if (IsKeyPressed(KEY_KP_6)) { AnimIndex = 15; }
+}
+
+UIChar::~UIChar() {
+	std::cout << "\n\033[1;93m UI Character Unloded \033[0m\n\n";
+	UnloadModel(model);
+	UnloadModelAnimations(Anim, AnimCount);
+}
+
+
+void DrawCursor() {
+	int cx = SW / 2;
+	int cy = SH / 2;
+	int size = 10;      // arm length
+	int gap = 3;       // center gap
+	int thickness = 2;
+
+	DrawLineEx({ (float)(cx - size), (float)cy }, { (float)(cx - gap), (float)cy }, thickness, WHITE);  // left
+	DrawLineEx({ (float)(cx + gap),  (float)cy }, { (float)(cx + size), (float)cy }, thickness, WHITE);  // right
+	DrawLineEx({ (float)cx, (float)(cy - size) }, { (float)cx, (float)(cy - gap) }, thickness, WHITE);  // top
+	DrawLineEx({ (float)cx, (float)(cy + gap) }, { (float)cx, (float)(cy + size) }, thickness, WHITE); // bottom
 }

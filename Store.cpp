@@ -33,20 +33,20 @@ void Store::DrawWindow() {
 	DrawRectangleGradientV(Window.x, Window.y, Window.width, 100, BLACK , LIGHTGRAY);
 
 	// Upper Sub-Header
-	DrawStoreMenuBox({ Window.x + 20  , Window.y + 10, 400, 80 }, Fade(GREEN, 0.5f), Fade(BLACK, 0.3f), Fade(RED, 0.4f), Fade(GRAY, 0.6f) , 1);
-	DrawStoreMenuBox({ Window.x + 540 , Window.y + 10, 400, 80 }, Fade(GREEN, 0.5f), Fade(BLACK, 0.3f), Fade(RED, 0.4f), Fade(GRAY, 0.6f) , 2);
-	DrawStoreMenuBox({ Window.x + 1060, Window.y + 10, 400, 80 }, Fade(GREEN, 0.5f), Fade(BLACK, 0.3f), Fade(RED, 0.4f), Fade(GRAY, 0.6f) , 3);
+	DrawStoreMenuBox({ Window.x + 20  , Window.y + 10, 400, 80 }, Fade(PINK, 0.5f), Fade(BLACK, 0.3f), Fade(RED, 0.4f), Fade(GRAY, 0.6f) , 1);
+	DrawStoreMenuBox({ Window.x + 540 , Window.y + 10, 400, 80 }, Fade(SKYBLUE, 0.5f), Fade(BLACK, 0.3f), Fade(BLUE, 0.4f), Fade(GRAY, 0.6f) , 2);
+	DrawStoreMenuBox({ Window.x + 1060, Window.y + 10, 400, 80 }, Fade(YELLOW, 0.5f), Fade(BLACK, 0.3f), Fade(GOLD, 0.4f), Fade(GRAY, 0.6f) , 3);
 
 	// Store Text
-	DrawStoreText({ Window.x + 20 , Window.y + 10, 400, 80 } , "Weapons", BLACK, color.LightDark, RED);
-	DrawStoreText({ Window.x + 540, Window.y + 10, 400, 80 } , "Defence", BLACK, color.LightDark, RED);
-	DrawStoreText({ Window.x + 1060, Window.y + 10, 400, 80 } , "Special" , BLACK , color.LightDark , RED);
+	DrawStoreText({ Window.x + 20 , Window.y + 10, 400, 80 } , "Weapons", BLACK, Fade(PINK , 0.7f), RED);
+	DrawStoreText({ Window.x + 540, Window.y + 10, 400, 80 } , "Defense", BLACK, Fade(DARKBLUE , 0.4f), BLUE);
+	DrawStoreText({ Window.x + 1060, Window.y + 10, 400, 80 } , "Special" , BLACK , Fade(DARKGREEN, 0.4f), GREEN);
 
 	// That Line between items and item info
 	DrawRectangleGradientH(Window.x + 1200, Window.y + 100.0f , 50.0f, Window.height - 100.0f , Fade(color.MidDark , 1.0f), Fade(BLACK, 0.4f));
 
 	// ----- Draw Small Info Window ----- 
-	DrawRectangleGradientH(Window.x + 1250.0f , Window.y + 150.0f , 500 , 600 , WHITE, RAYWHITE);
+	DrawRectangleGradientEx({ Window.x + 1250.0f , Window.y + 150.0f , 500 , 600 }, Fade(LIGHTGRAY, 0.3f), Fade(WHITE, 255.f), Fade(LIGHTGRAY, 0.5f), Fade(WHITE, 255.f));
 }
 
 
@@ -167,7 +167,7 @@ void Store::DrawWindowItemSelection(int index , std::string Context, Texture2D T
 	if (Index_Item == index) {
 		// ----- Drawing the Store Text -----
 		DrawTextEx(Azonix, Context.c_str(), Location, 32, 2, BLACK);
-		DrawTextureEx(Tex, { Win.x + 50.0f  , Win.y }, 0.0f, 0.3f, WHITE);
+		DrawTextureEx(Tex, { Win.x + 150.0f  , Win.y }, 0.0f, 0.3f, WHITE);
 	}
 }
 
@@ -180,7 +180,7 @@ void Store::ShowWindow(bool &show) {
 	}
 	if (show) {
 		DrawWindow();
-		if (Index_Store == 1) DrawInsideWindow(1, C1 , Tex1); 
+		if (Index_Store == 1)      DrawInsideWindow(1, C1 , Tex1); 
 		else if (Index_Store == 2) DrawInsideWindow(2, C2 , Tex2);
 		else if (Index_Store == 3) DrawInsideWindow(3, C3 , Tex3);
 	}

@@ -11,22 +11,29 @@
 #include "MainGame.h"
 
 
+// ---------- Base class: Player ----------
 class Player {
 public:
-	int Health;
-	float Speed;
-	float pitch;
+	// ----- Stats -----
+	int Health;    // health
+	float Speed;   // speed
+
+	// Player mouse X and Y movement
+	float pitch;  
 	float yaw;
 
-	Vector3 Pos;
-	Camera3D cam;
-	Vector3 MouseMovement;
+	
+	Vector3 Pos;    // Position 
+	Camera3D cam;   // Camera following 
+	Vector3 MouseMovement;    // MouseMovement [from one pos to another]
 
-	Vector3 Forward;
-	Vector3 Right;
 
-	BoundingBox PlayerHitbox;
+	Vector3 Forward;  // Player moving forward movement
+	Vector3 Right;    // Following the dir of movement
 
+	BoundingBox PlayerHitbox;   // Hitbox
+
+	// Animation 
 	int CurrentFrame;
 	int AnimIndex;
 	int AnimCount;
@@ -43,6 +50,7 @@ public:
 };
 
 
+// ---------- Main Player ----------
 class Player_Main : public Player {
 public:
 
@@ -59,6 +67,7 @@ public:
 extern Player_Main player_main;
 
 
+// ---------- Enemy player ----------
 class Player_Enemy : public Player {
 public:
 
@@ -68,6 +77,5 @@ public:
 	void PlayerMovement() override;
 	void LoadAnimation() override;
 	void PlayerAnimation() override;
-
 };
 extern Player_Enemy player_enemy;

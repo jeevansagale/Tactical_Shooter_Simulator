@@ -54,7 +54,7 @@ extern Texture2D Enemy_Tex;
 extern Sound Click;
 
 
-// -------------------- SOUND --------------------
+// -------------------- ICONS --------------------
 extern Texture2D PlayIcon;    
 extern Texture2D ArmourIcon;   
 extern Texture2D HealthIcon;   

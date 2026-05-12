@@ -79,3 +79,25 @@ public:
 };
 extern OtherStuff OS;
 
+
+class UIChar {
+public:
+	int AnimIndex;
+	int AnimCount;
+	int CurrentFrame;
+
+	Model model;
+	ModelAnimation* Anim;
+
+	Vector3 Position;
+
+	UIChar();
+	void LoadAnimation();
+	void DrawUICharacter();
+	~UIChar();
+};
+extern UIChar uichar;
+
+
+// ----------- Other ---------------
+void DrawCursor();

@@ -10,8 +10,7 @@ A fast-paced tactical shooter prototype focused on gunplay, movement, and combat
 - Shooting and weapon systems
 - Smooth player movement
 - Camera controls
-- Recoil and aiming mechanics
-- Enemy interactions
+- Multiplayer support
 - HUD/UI systems
 - Sound and visual feedback
 - Modular game architecture
@@ -22,7 +21,7 @@ A fast-paced tactical shooter prototype focused on gunplay, movement, and combat
 
 - **Language:** C++
 - **Graphics:** OpenGL
-- **Framework/Library:** Raylib *(change if needed)*
+- **Framework/Library:** Raylib
 - **Platform:** Windows
 
 ---
@@ -35,8 +34,6 @@ Tactical_Shooter_Simulator/
 ├── assets/        # Textures, sounds, models
 ├── src/           # Source code
 ├── include/       # Header files
-├── shaders/       # GLSL shaders
-├── build/         # Compiled binaries
 └── README.md
 ```
 
@@ -49,10 +46,6 @@ Tactical_Shooter_Simulator/
 | Move | WASD |
 | Aim | Mouse |
 | Shoot | Left Click |
-| Reload | R |
-| Jump | Space |
-| Sprint | Shift |
-
 ---
 
 # Installation
@@ -89,8 +82,7 @@ This project is mainly focused on learning and experimenting with:
 
 # Future Plans
 
-- Multiplayer support
-- Better enemy AI
+- Enemy AI
 - Weapon customization
 - Improved animations
 - New maps/environments
@@ -99,15 +91,6 @@ This project is mainly focused on learning and experimenting with:
 
 ---
 
-# Screenshots
-
-_Add screenshots or gameplay GIFs here_
-
-```md
-![Gameplay](Screenshots/gameplay.png)
-```
-
----
 
 # Contributing
 

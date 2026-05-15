@@ -2,7 +2,9 @@
 
 #include <raylib.h>
 #include <raymath.h>
+#include <iostream>
 #include <vector>
+#include <string>
 
 
 #define SW /*1920*/ float(GetScreenWidth())

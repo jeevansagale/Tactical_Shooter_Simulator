@@ -1,80 +1,134 @@
-#  Tactical Shooter
+# Tactical Shooter Simulator
 
-A simple 3D tactical shooter game built using **C++** and the **raylib** library, featuring stylized assets from the **Kay-Kit** asset pack.
+A fast-paced tactical shooter prototype focused on gunplay, movement, and combat mechanics. Built as a learning and experimentation project using C++ and graphics/game programming concepts.
 
-##  Overview
+---
 
-**Tactical Shooter** is a beginner-to-intermediate level game project focused on learning core game development concepts such as:
+# Features
 
-* 3D rendering
-* Player movement and controls
-* Game UI systems
-* Basic shooting mechanics
-* Inventory/store systems
+- FPS/Tactical shooter gameplay
+- Shooting and weapon systems
+- Smooth player movement
+- Camera controls
+- Recoil and aiming mechanics
+- Enemy interactions
+- HUD/UI systems
+- Sound and visual feedback
+- Modular game architecture
 
-The project uses lightweight tools to keep development simple while still achieving a clean and functional 3D experience.
+---
 
-##  Built With
+# Tech Stack
 
-* **C++** – Core programming language
-* **raylib** – Simple and easy-to-use game development library
-* **Kay-Kit Assets** – Low-poly stylized 3D assets
+- **Language:** C++
+- **Graphics:** OpenGL
+- **Framework/Library:** Raylib *(change if needed)*
+- **Platform:** Windows
 
-##  Features
+---
 
-*  In-game store system (buy weapons/items)
-*  Modular UI (tabs, items, interactions)
-*  Clean and minimal visual style
+# Project Structure
 
-
-### Prerequisites
-
-Make sure you have:
-
-* A C++ compiler (GCC / MSVC)
-
-### Build & Run
-
-1. Clone the repository:
-
-```
-git clone https://github.com/your-username/TacticalShooter.git
-```
-
-2. Navigate to the project folder:
-
-```
-cd TacticalShooter
+```bash
+Tactical_Shooter_Simulator/
+│
+├── assets/        # Textures, sounds, models
+├── src/           # Source code
+├── include/       # Header files
+├── shaders/       # GLSL shaders
+├── build/         # Compiled binaries
+└── README.md
 ```
 
-3. Extract and click on .exe file:
+---
 
+# Controls
+
+| Action | Key |
+|---|---|
+| Move | WASD |
+| Aim | Mouse |
+| Shoot | Left Click |
+| Reload | R |
+| Jump | Space |
+| Sprint | Shift |
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jeevansagale/Tactical_Shooter_Simulator.git
 ```
-click Tactical_Shooter.exe
+
+Open the project directory:
+
+```bash
+cd Tactical_Shooter_Simulator
 ```
 
+Build and run the project.
 
-##  Future Improvements
+---
 
-*  Enemy AI system
-*  Aim and shooting polish
-*  Inventory & equipment system
-*  Sound effects and music
-*  UI animations and feedback
+# Goals of the Project
 
-   
-##  License
+This project is mainly focused on learning and experimenting with:
 
-This project is for educational purposes.
-Assets used belong to their respective creators (Kay-Kit).
+- FPS mechanics
+- Tactical shooter systems
+- Real-time rendering
+- Game architecture
+- Combat feedback
+- Graphics programming
+- Optimization techniques
 
+---
 
-##  Acknowledgements
+# Future Plans
 
-* raylib community
-* Kay-Kit for awesome assets
+- Multiplayer support
+- Better enemy AI
+- Weapon customization
+- Improved animations
+- New maps/environments
+- Better sound design
+- Performance optimization
 
+---
 
-##  Notes
+# Screenshots
 
-This project is part of a learning journey in game development and will continue to evolve over time.
+_Add screenshots or gameplay GIFs here_
+
+```md
+![Gameplay](Screenshots/gameplay.png)
+```
+
+---
+
+# Contributing
+
+Contributions, ideas, and feedback are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+---
+
+# License
+
+This project is currently under the MIT License.
+
+---
+
+# Author
+
+## Jeevan Sagale
+
+GitHub: https://github.com/jeevansagale
+Repository: https://github.com/jeevansagale/Tactical_Shooter_Simulator

@@ -229,17 +229,12 @@ void Menu2D() {
 	DrawRectangleGradientEx({ 0 , 0 , SW , SH }, Fade(color.UI_BACKGROUND, 0.3f), Fade(color.UI_SECONDARY, 0.2f), Fade(color.UI_SECONDARY, 0.2f), Fade(color.UI_BACKGROUND , 0.3f));
 
 	DrawRectangleRounded({ 60, 100, 660, 600 } , 0.1f , 30.0f ,  Fade(color.UI_PANEL_GLASS, 0.7f));
-	DrawRectangleRoundedLinesEx({ 60 , 100 , 660 , 600 }, 0.1f, 30.0f, 5.f , Fade(color.TACTICAL_CYAN, 0.5f));
+	DrawRectangleRoundedLinesEx({ 60 , 100 , 660 , 600 }, 0.1f, 30.0f, 5.f , Fade(color.BORDER_SOFT, 0.5f));
 
 	T.MakeTitle("TACTICAL SHOOTER");
 	MakeButton({ 100 , 300 , 270 , 70 }, "START", color.START_TOP, color.START_BOTTOM, LIME, START);
 	MakeButton({ 100 , 400 , 270 , 70 }, "CREDITS", color.CREDITS_TOP, color.CREDITS_BOTTOM, GOLD, CREDITS);
 	MakeButton({ 100 , 500 , 270 , 70 }, "EXIT", color.EXIT_TOP, color.EXIT_BOTTOM, MAROON, EXIT);
-
-	DrawTextureEx(PlayIcon, { 110, 310 }, 0 , 0.09f, WHITE);
-	DrawTextureEx(ExitIcon, { 110, 510 }, 0 , 0.09f, WHITE);
-
-	DrawText(TextFormat("%.1f %.1f", MP.x, MP.y), 30, 10, 30, RED);
 }
 
 

@@ -5,8 +5,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-
 #define SW /*1920*/ float(GetScreenWidth())
 #define SH /*960*/ float(GetScreenHeight())
 
@@ -48,7 +46,7 @@ public:
 	Color LightDark;
 	Color LightDark2;
 	Color MidDark;
-	Color MidDark2 ;
+	Color MidDark2;
 	Color Dark;
 
 	// Red shades

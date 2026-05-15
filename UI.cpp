@@ -48,18 +48,35 @@ void MakeButton(Rectangle Btn, const char* BtnName, Color N, Color H, Color P, S
 	if (Check && IsMouseButtonDown(MOUSE_LEFT_BUTTON)) { N = P; }
 	if (Check && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) { PlaySound(Click); N = P; CurrentState = NewState; }
 
+	if (Check) {
+		Btn.x += 100 * DT;
+		Btn.y += 100 * DT;
+		Btn.width += 100 * DT;
+		Btn.height += 100 * DT;
+		Location = Vector2Add(Location, { 100 * DT , 100 * DT });
+	}
+	else {
+		Btn.x -= 100 * DT;
+		Btn.y -= 100 * DT;
+		Btn.width -= 100 * DT;
+		Btn.height -= 100 * DT;
+		Location = Vector2Subtract(Location, { 100 * DT , 100 * DT });
+	}
+
 	// ----- Drawing the button -----
-	DrawRectangleRounded(Btn, 16 , 8,  Fade(N , 0.6f));
-	DrawRectangleRoundedLines(Btn, 32, 16, Fade(BLACK, 0.9f)); 
-	DrawTextEx(Azonix, BtnName, Location , 32, 2, BLACK);
+	DrawRectangleRounded(Btn, 16 , 8,  Fade(N , 0.9f));
+	DrawRectangleRoundedLinesEx(Btn, 32, 16, 5.0f, BLACK);
+	DrawTextEx(Azonix, BtnName, Vector2Subtract(Location, { 2 , 2 }), 32, 2, BLACK);
+	DrawTextEx(Azonix, BtnName, Vector2Add(Location, {2 , 2}), 32, 2, color.TEXT_WHITE);
+	DrawTextEx(Azonix, BtnName, Location, 32, 2, color.TEXT_SECONDARY);
 }
 
 
 // ----- TITLE ANIMATION -----
 Title::Title() {
 	Alpha = 0.0f;
-	DirX = -600;
-	DirY = 100.0f;
+	DirX = -1000;
+	DirY = 120.0f;
 	Dir = 1;
 }
 
@@ -74,18 +91,15 @@ void Title::MakeTitle(const char* Title) {
 		DirX = Clamp(DirX, -1100.0f, 200.0f);
 		DirY += DT * Dir;
 	}
-	if (DirY >= 80.0f) { Dir = -1; }
-	if (DirY <= 140.0f) { Dir = 1; }
+	if (DirY >= 60.0f) { Dir = -1; }
+	if (DirY <= 160.0f) { Dir = 1; }
 
 	if (DirX >= 20.0f) { Alpha += DT; }
 	if (Alpha >= 1.0f) { Alpha = 1.0f; Alpha = Clamp(Alpha, 0.0f, 1.0f); }
 
-	//std::string T = std::string(Title);
-	//DrawRectangleRounded({ (DirX - 100.0f) , (DirY - 20.0f) , 670.0f , 120.0f }, 0.3f, 30.0f, Fade(BLACK, 0.2f));
-	//DrawRectangleRoundedLinesEx({ (DirX - 100.0f) , (DirY - 20.0f) , 670.0f , 120.0f }, 0.3f, 30.0f, 5.0f, Fade(WHITE, 0.1f));
-	
-	DrawTextEx(Doom, Title, Location, 128, 2, Fade(BLACK, Alpha));
-	DrawTextEx(DoomOutline, Title, { Location.x + 2 , Location.y + 2 }, 128, 2, Fade(BLACK, Alpha));
+	DrawTextEx(Azonix, Title, Vector2Subtract(Location, { 2 , 2 }), 45, 2, BLACK);
+	DrawTextEx(Azonix, Title, Location, 45, 2, Fade(color.TEXT_WHITE, Alpha));
+	DrawTextEx(Azonix, Title, Vector2Add(Location, {2 , 2}), 45, 2, Fade(color.TEXT_SECONDARY, Alpha));
 	DrawTextureEx(PistolIcon, { Location.x - 100.0f , Location.y }, 0.0f, 0.2f, WHITE);
 }
 

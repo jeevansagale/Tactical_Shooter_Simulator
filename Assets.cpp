@@ -102,8 +102,8 @@ void Furniture::Load() {
 void Fonts::Load() {
 	Doom = LoadFontEx("Assets/Fonts/AmazDooMLeft.ttf", 128, 0, 0);
 	DoomOutline = LoadFontEx("Assets/Fonts/AmazDooMLeftOutline.ttf", 128, 0, 0);
-	GamePixel = LoadFontEx("Assets/Fonts/PixelGamer-Regular.otf", 64, 0, 0);
-	Azonix = LoadFontEx("Assets/Fonts/Azonix.otf", 64, 0, 0);
+	GamePixel = LoadFontEx("Assets/Fonts/PixelGamer-Regular.otf", 128, 0, 0);
+	Azonix = LoadFontEx("Assets/Fonts/Azonix.otf", 128, 0, 0);
 }
 
 

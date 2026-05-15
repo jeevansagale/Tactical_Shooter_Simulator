@@ -2,9 +2,9 @@
 
 #include <raylib.h>
 #include <raymath.h>
-#include <string>
-#include <iostream>
-#include "Common.hpp"
+#include "UI.h"
+#include "Assets.h"
+#include "Common.h"
 
 extern int Index_Store;
 extern int Index_Item;

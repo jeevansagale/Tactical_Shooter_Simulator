@@ -112,6 +112,7 @@ This project is currently under the MIT License.
 # Author
 
 ## Jeevan Sagale
+## Vedant Hire
 
 GitHub: https://github.com/jeevansagale
-Repository: https://github.com/jeevansagale/Tactical_Shooter_Simulator
+https://github.com/HireVedant

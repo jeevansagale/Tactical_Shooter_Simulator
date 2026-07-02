@@ -1,118 +1,123 @@
 # Tactical Shooter Simulator
 
-A fast-paced tactical shooter prototype focused on gunplay, movement, and combat mechanics. Built as a learning and experimentation project using C++ and graphics/game programming concepts.
+A fast-paced tactical shooter prototype built in **C++** using **Raylib** and **OpenGL**. This project serves as a hands-on exploration of game engine architecture, FPS mechanics, rendering, and modern game programming techniques.
 
----
+The primary goal is to learn how tactical shooters are built from the ground up while maintaining a clean and modular codebase that can be expanded over time.
 
-# Features
+## Preview
 
-- FPS/Tactical shooter gameplay
-- Shooting and weapon systems
-- Smooth player movement
-- Camera controls
-- Multiplayer support
-- HUD/UI systems
-- Sound and visual feedback
-- Modular game architecture
+> *(Add gameplay screenshots or GIFs here.)*
 
----
+## Current Features
 
-# Tech Stack
+* First-person player controller
+* Smooth camera movement
+* Shooting mechanics
+* Weapon system foundation
+* HUD/UI elements
+* Audio and visual feedback
+* Modular project structure for future expansion
 
-- **Language:** C++
-- **Graphics:** OpenGL
-- **Framework/Library:** Raylib
-- **Platform:** Windows
+## Planned Features
 
----
+* Enemy AI
+* Multiplayer support
+* Weapon customization
+* Multiple maps
+* Animation improvements
+* Better sound design
+* Advanced combat mechanics
+* Performance optimization
 
-# Project Structure
+## Tech Stack
 
-```bash
+| Component    | Technology |
+| ------------ | ---------- |
+| Language     | C++        |
+| Graphics API | OpenGL     |
+| Framework    | Raylib     |
+| Platform     | Windows    |
+
+## Project Structure
+
+```text
 Tactical_Shooter_Simulator/
 │
-├── assets/        # Textures, sounds, models
-├── src/           # Source code
-├── include/       # Header files
+├── assets/          # Textures, models, sounds
+├── include/         # Header files
+├── src/             # Source files
 └── README.md
 ```
 
----
+## Controls
 
-# Controls
+| Action      | Key               |
+| ----------- | ----------------- |
+| Move        | WASD              |
+| Look Around | Mouse             |
+| Shoot       | Left Mouse Button |
 
-| Action | Key |
-|---|---|
-| Move | WASD |
-| Aim | Mouse |
-| Shoot | Left Click |
----
+## Getting Started
 
-# Installation
-
-Clone the repository:
+### Clone the repository
 
 ```bash
 git clone https://github.com/jeevansagale/Tactical_Shooter_Simulator.git
 ```
 
-Open the project directory:
+### Enter the project directory
 
 ```bash
 cd Tactical_Shooter_Simulator
 ```
 
-Build and run the project.
+### Build
 
----
+Open the project in **Visual Studio 2022** and build the solution.
 
-# Goals of the Project
+## Learning Objectives
 
-This project is mainly focused on learning and experimenting with:
+This project is being developed to gain practical experience with:
 
-- FPS mechanics
-- Tactical shooter systems
-- Real-time rendering
-- Game architecture
-- Combat feedback
-- Graphics programming
-- Optimization techniques
+* FPS gameplay programming
+* Tactical shooter mechanics
+* Real-time rendering
+* Camera systems
+* Collision detection
+* Game architecture
+* Modern C++ design
+* Performance optimization
 
----
+## Roadmap
 
-# Future Plans
+* [ ] Complete player controller
+* [ ] Improve weapon mechanics
+* [ ] Add enemy AI
+* [ ] Implement animations
+* [ ] Create playable map
+* [ ] Multiplayer prototype
+* [ ] Polish UI/HUD
+* [ ] Audio improvements
 
-- Enemy AI
-- Weapon customization
-- Improved animations
-- New maps/environments
-- Better sound design
-- Performance optimization
+## Contributing
 
----
-
-
-# Contributing
-
-Contributions, ideas, and feedback are welcome.
+Contributions, suggestions, and feedback are welcome.
 
 1. Fork the repository
-2. Create a feature branch
+2. Create a new feature branch
 3. Commit your changes
-4. Open a pull request
+4. Open a Pull Request
 
----
+## License
 
-# License
+This project is licensed under the MIT License.
 
-This project is currently under the MIT License.
+## Authors
 
----
-
-# Author
-
-## Jeevan Sagale
-## Vedant Hire
+**Jeevan Sagale**
 
 GitHub: https://github.com/jeevansagale
-https://github.com/HireVedant
+
+**Vedant Hire**
+
+GitHub: https://github.com/HireVedant

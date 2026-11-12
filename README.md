@@ -1,134 +1,84 @@
 # Tactical Shooter Simulator
 
-A fast-paced tactical shooter prototype built in **C++** using **Raylib** and **OpenGL**. This project serves as a hands-on exploration of game engine architecture, FPS mechanics, rendering, and modern game programming techniques.
+A first-person shooter prototype built in C++ with Raylib. The project explores player movement, camera control, shooting mechanics, weapon foundations, and the structure of a small real-time game.
 
-The primary goal is to learn how tactical shooters are built from the ground up while maintaining a clean and modular codebase that can be expanded over time.
+This is a collaborative project with [Vedant Hire](https://github.com/HireVedant).
 
-## Preview
-
-<p align="center">
-  <img src="Images/Screenshot%202026-07-03%20080749.png" width="48%" alt="Gameplay Screenshot 1">
-  <img src="Images/Screenshot%202026-07-03%20080811.png" width="48%" alt="Gameplay Screenshot 2">
-</p>
+## Development Preview
 
 <p align="center">
-  <img src="Images/Screenshot%202026-07-03%20080848.png" width="48%" alt="Gameplay Screenshot 3">
-  <img src="Images/Screenshot%202026-07-03%20080930.png" width="48%" alt="Gameplay Screenshot 4">
+  <img src="Images/Screenshot%202026-07-03%20080749.png" width="48%" alt="Gameplay preview 1" />
+  <img src="Images/Screenshot%202026-07-03%20080811.png" width="48%" alt="Gameplay preview 2" />
+</p>
+<p align="center">
+  <img src="Images/Screenshot%202026-07-03%20080848.png" width="48%" alt="Gameplay preview 3" />
+  <img src="Images/Screenshot%202026-07-03%20080930.png" width="48%" alt="Gameplay preview 4" />
 </p>
 
-*Current development screenshots showcasing the game's visuals, player movement, and environment.*
+## Implemented Features
 
+- First-person player controller.
+- Mouse-driven camera movement.
+- Shooting mechanics and weapon-system foundation.
+- HUD and UI elements.
+- Audio and visual feedback.
+- Separated source and header files for major gameplay systems.
 
-## Current Features
+## Planned Work
 
-* First-person player controller
-* Smooth camera movement
-* Shooting mechanics
-* Weapon system foundation
-* HUD/UI elements
-* Audio and visual feedback
-* Modular project structure for future expansion
+- Enemy behavior and AI.
+- Additional weapons and customization.
+- More maps and environments.
+- Animation and audio improvements.
+- Multiplayer exploration.
+- Performance and gameplay refinement.
 
-## Planned Features
+These are planned items, not currently completed features.
 
-* Enemy AI
-* Multiplayer support
-* Weapon customization
-* Multiple maps
-* Animation improvements
-* Better sound design
-* Advanced combat mechanics
-* Performance optimization
+## Technology
 
-## Tech Stack
+- C++
+- Raylib
+- OpenGL (through Raylib)
 
-| Component    | Technology |
-| ------------ | ---------- |
-| Language     | C++        |
-| Graphics API | OpenGL     |
-| Framework    | Raylib     |
-| Platform     | Windows    |
+## Source Layout
 
-## Project Structure
+The repository currently keeps the C++ source and header files at the root, with an `Images/` folder for screenshots and an `Assets/` folder for runtime resources.
 
 ```text
 Tactical_Shooter_Simulator/
-│
-├── assets/          # Textures, models, sounds
-├── include/         # Header files
-├── src/             # Source files
-└── README.md
+├── Assets/
+├── Images/
+├── MainGame.cpp
+├── MainGame.h
+├── Player.cpp
+├── Player.h
+├── ShootSystem.cpp
+├── ShootSystem.h
+├── UI.cpp
+├── UI.h
+└── Tactical_Shooter_Simulator.cpp
 ```
+
+## Build and Run
+
+The repository currently includes Windows runtime binaries and DLLs, but does not include a Visual Studio solution, project file, CMake configuration, or Makefile.
+
+To build from source, configure a C++ compiler and Raylib for your platform, then compile the tracked `.cpp` files and link against the matching Raylib dependencies. A reproducible build configuration is a useful future addition.
 
 ## Controls
 
-| Action      | Key               |
-| ----------- | ----------------- |
-| Move        | WASD              |
-| Look Around | Mouse             |
-| Shoot       | Left Mouse Button |
+| Action | Input |
+|---|---|
+| Move | W, A, S, D |
+| Look around | Mouse |
+| Shoot | Left mouse button |
 
-## Getting Started
+## Contributors
 
-### Clone the repository
-
-```bash
-git clone https://github.com/jeevansagale/Tactical_Shooter_Simulator.git
-```
-
-### Enter the project directory
-
-```bash
-cd Tactical_Shooter_Simulator
-```
-
-### Build
-
-Open the project in **Visual Studio 2022** and build the solution.
-
-## Learning Objectives
-
-This project is being developed to gain practical experience with:
-
-* FPS gameplay programming
-* Tactical shooter mechanics
-* Real-time rendering
-* Camera systems
-* Collision detection
-* Game architecture
-* Modern C++ design
-* Performance optimization
-
-## Roadmap
-
-* [ ] Complete player controller
-* [ ] Improve weapon mechanics
-* [ ] Add enemy AI
-* [ ] Implement animations
-* [ ] Create playable map
-* [ ] Multiplayer prototype
-* [ ] Polish UI/HUD
-* [ ] Audio improvements
-
-## Contributing
-
-Contributions, suggestions, and feedback are welcome.
-
-1. Fork the repository
-2. Create a new feature branch
-3. Commit your changes
-4. Open a Pull Request
+- **Jeevan Sagale** — [GitHub](https://github.com/jeevansagale)
+- **Vedant Hire** — [GitHub](https://github.com/HireVedant)
 
 ## License
 
-This project is licensed under the MIT License.
-
-## Authors
-
-**Jeevan Sagale**
-
-GitHub: https://github.com/jeevansagale
-
-**Vedant Hire**
-
-GitHub: https://github.com/HireVedant
+No license file is currently included. Unless a license is added, the repository should be treated as source available for viewing, not as granting general permission to reuse or redistribute the code.
